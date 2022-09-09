@@ -11,7 +11,7 @@
         "clean": "find . -name node_modules -o -name dist -o -name .expo -type d -prune | xargs rm -rf",
         "format": "prettier --write \"**/*.{ts,tsx,md}\" && eslint \"**/*.ts\" --fix",
         "test": "turbo run test -parallel",
-        "lint": "prettier --check . && eslint src"
+        "lint": "prettier --check \"**/*.{ts,tsx,md}\" && eslint \"**/*.ts\""
     },
     "contributors": [
         "Pedro Henrique <me@syntax.lol>"
