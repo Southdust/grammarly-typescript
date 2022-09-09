@@ -1,0 +1,31 @@
+{
+    "name": "grammarly.js",
+    "version": "0.1.0",
+    "description": "A simple JavaScript-based library for interacting with Grammarly.",
+    "license": "MIT",
+    "scripts": {
+    },
+    "directories": {
+        "lib": "src",
+        "test": "test"
+    },
+    "files": ["src"],
+    "main": "src/index.ts",
+    "contributors": [
+        "Pedro Henrique <me@syntax.lol>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Southdust/grammarly.js.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Southdust/grammarly.js/issues"
+    },
+    "keywords": [
+        "grammarly",
+        "api",
+        "node",
+        "client"
+    ],
+    "homepage": "https://github.com/Southdust/grammarly.js#readme" 
+}

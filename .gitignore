@@ -1,0 +1,14 @@
+# Node.js - Turbo
+node_modules/
+.turbo
+
+# Distribution
+dist/
+
+# IDE/Text editor-specific
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# OS-specific
+.DS_Store
