@@ -1,8 +1,0 @@
-{
-    "extends": "eslint:recommended",
-    "rules": {
-        "semi": ["error", "always"],
-        "no-else-return": "error",
-        "no-tabs": "error"
-    }
-}

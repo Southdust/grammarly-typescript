@@ -44,6 +44,8 @@ cd "$SCRIPT_DIR"/..
 mkdir packages/"$PACKAGE_NAME"
 mkdir packages/"$PACKAGE_NAME"/test
 mkdir packages/"$PACKAGE_NAME"/src
+mkdir -p packages/"$PACKAGE_NAME"/dist/ejs
+mkdir packages/"$PACKAGE_NAME"/dist/esm
 touch packages/"$PACKAGE_NAME"/src/index.ts
 
 DESCRIPTION="$(jq -r '.description' package.json)"
@@ -53,25 +55,26 @@ CONTRIBUTORS="$(jq -r '.contributors' package.json)"
 HOMEPAGE="$(jq -r '.homepage' package.json)"
 KEYWORDS="$(jq -r '.keywords' package.json)"
 
-TSCONFIG='{
-    "extends": "../../tsconfig.json",
-    "include": ["src"],
-    "compilerOptions": {
-        "pretty": false,
-    }
-}'
+echo'{
+    "extends": "../../tsconfig.base.json",
+    "include": ["src"]
+}' >> packages/"$PACKAGE_NAME"/tsconfig.json
 echo "{
     \"name\": \"$PACKAGE_NAME\",
     \"version\": \"0.1.0\",
     \"description\": \"$DESCRIPTION\",
     \"license\": \"MIT\",
-    \"main\": \"./src/index.ts\",
+    \"main\": \"dist/cjs/index.js\",
+    \"module\": \"dist/esm/index.js\",
+    \"types\": \"dist/cjs/index.d.ts\",
+    \"files\": [
+        \"dist\"
+    ],
     \"scripts\": {
-        \"test\": \"jest\"
-    },
-    \"directories\": {
-        \"lib\": \"src\",
-        \"test\": \"test\"
+        \"test\": \"jest\",
+        \"build\": \"pnpm build:cjs && pnpm build:esm\",
+        \"build:cjs\": \"tsc --module commonjs --outdir dist/cjs\",
+        \"build:esm\": \"tsc --module esnext --outdir dist/esm\",
     },
     \"repository\": $REPOSITORY,
     \"bugs\": $BUGS,
