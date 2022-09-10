@@ -6,12 +6,9 @@ async function start() {
     await client.establish();
     client.init("american");
 
-    client.on("result", (data) => console.warn(data));
-    client.on("error", (data) => console.error("error", data));
-    client.on("close", (data) => console.log("close", data));
-
     const str = "helo world";
     const analysis = await client.analyze(str);
+    console.log(analysis);
 }
 
 start();

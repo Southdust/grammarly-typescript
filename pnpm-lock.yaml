@@ -22,12 +22,10 @@ importers:
 
   example:
     specifiers:
-      example: 'link:'
       grammarly.js: file:../packages/grammarly.js
       tslib: ^2.4.0
       typescript: ^4.8.3
     dependencies:
-      example: 'link:'
       grammarly.js: file:packages/grammarly.js
     devDependencies:
       tslib: 2.4.0

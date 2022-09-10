@@ -18,7 +18,6 @@ export type InitializeMessagePayload = {
     readonly extDomain: string;
     readonly action: Action;
     readonly id: number;
-    readonly sid: number;
 };
 
 export class InitializeMessage implements Message<InitializeMessageContext, InitializeMessagePayload> {
@@ -41,7 +40,6 @@ export class InitializeMessage implements Message<InitializeMessageContext, Init
             extDomain: "editpad.org",
             action: "start",
             id: 0,
-            sid: 0,
         };
     }
 }

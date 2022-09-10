@@ -7,8 +7,8 @@ export interface RequestAnalysisMessageContext extends MessageContext {
 }
 
 export type RequestAnalysisMessagePayload = {
-    readonly action: Action;
     readonly ch: string[];
+    readonly action: Action;
     readonly rev: number;
     readonly id: number;
 };
@@ -16,8 +16,8 @@ export type RequestAnalysisMessagePayload = {
 export class RequestAnalysisMessage implements Message<RequestAnalysisMessageContext, RequestAnalysisMessagePayload> {
     build(ctx: RequestAnalysisMessageContext): RequestAnalysisMessagePayload {
         return {
-            action: "submit_ot",
             ch: [`+0:0:${ctx.content}:0`],
+            action: "submit_ot",
             rev: 0,
             id: 0,
         };

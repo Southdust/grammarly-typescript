@@ -12,8 +12,8 @@
     "scripts": {
         "test": "jest --verbose",
         "build": "pnpm build:cjs && pnpm build:esm",
-        "build:cjs": "tsc --module commonjs --outdir dist/cjs",
-        "build:esm": "tsc --module esnext --outdir dist/esm"
+        "build:cjs": "rm -rf dist/cjs/* && tsc --module commonjs --outdir dist/cjs",
+        "build:esm": "rm -rf dist/esm/* && tsc --module esnext --outdir dist/esm"
     },
     "repository": {
         "type": "git",
