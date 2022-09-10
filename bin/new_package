@@ -82,7 +82,7 @@ echo "{
     \"contributors\": $CONTRIBUTORS,
     \"keywords\": $KEYWORDS
 }" >> packages/"$PACKAGE_NAME"/package.json
-LINK=("LICENSE")
+LINK=("LICENSE" "README.md")
 DEV_PACKAGES=(
     "typescript"
     "@types/node"
