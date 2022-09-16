@@ -9,9 +9,9 @@
         "prepare": "is-ci || husky install",
         "build": "turbo run build",
         "clean": "find . -name node_modules -o -name dist -o -name .expo -type d -prune | xargs rm -rf",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "format": "prettier --write \"**/*.{js,ts,md}\"",
         "test": "turbo run test --parallel",
-        "lint": "prettier --check \"**/*.{ts,tsx,md}\""
+        "lint": "prettier --check \"**/*.{js,ts,md}\""
     },
     "contributors": [
         "Pedro Henrique <me@syntax.lol>"

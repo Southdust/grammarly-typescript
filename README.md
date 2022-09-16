@@ -26,4 +26,3 @@ Usage is pretty straightforward and only require a few steps, which you can chec
 diving into the source code.
 
 [example]: https://github.com/Southdust/grammarly.js/blob/main/example/index.ts
-

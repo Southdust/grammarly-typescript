@@ -16,7 +16,7 @@ export default interface AlertResponse extends Response {
     readonly minicardTitle?: string;
     readonly begin: number;
     readonly end: number;
-    readonly text: number;
+    readonly text: string;
     readonly group: string;
     readonly pname: string;
     readonly rev: number;
