@@ -11,4 +11,4 @@ async function start() {
     console.log(analysis);
 }
 
-start();
+start().catch((error) => console.log("Failed:", error));

@@ -12,9 +12,10 @@
     "license": "ISC",
     "devDependencies": {
         "tslib": "^2.4.0",
-        "typescript": "^4.8.3"
+        "typescript": "^4.8.4"
     },
     "dependencies": {
-        "grammarly.js": "workspace:^0.1.2"
+        "example": "link:",
+        "grammarly.js": "workspace:^0.1.3"
     }
 }

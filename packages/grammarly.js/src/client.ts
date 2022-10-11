@@ -9,6 +9,12 @@ const Initialize = new Request.InitializeMessage();
 
 const RequestAnalysis = new Request.RequestAnalysisMessage();
 
+export type ClosePayload = {
+    reason: string;
+    code: number;
+    type: string;
+};
+
 /**
  * The options required to establish a connection to the Grammarly web socket server.
  * @see GrammarlyClient
@@ -72,7 +78,10 @@ export class GrammarlyClient {
                 },
             });
             this.client.once("open", () => resolve());
-            this.client.once("error", () => reject());
+            this.client.once("error", (error) => reject(error));
+            this.client.onerror = (error) => reject(error);
+            this.client.onclose = (close) =>
+                reject({ reason: close.reason, code: close.code, type: close.type } as ClosePayload);
         });
     }
 
@@ -127,12 +136,21 @@ export class GrammarlyClient {
                         break;
                 }
             };
-            this.client.onerror = (_) => {
+            this.client.onerror = (error) => {
                 this.client.onmessage = null;
                 this.client.onerror = null;
-                reject();
+                this.client.onclose = null;
+                reject(error);
             };
-            this.client.send(JSON.stringify(RequestAnalysis.build({ content })));
+            this.client.onclose = (close) => {
+                this.client.onmessage = null;
+                this.client.onerror = null;
+                this.client.onclose = null;
+                reject({ reason: close.reason, code: close.code, type: close.type } as ClosePayload);
+            };
+            const req = RequestAnalysis.build({ content });
+            console.log("work?");
+            this.client.send(JSON.stringify(req));
         });
     }
 }
