@@ -149,7 +149,6 @@ export class GrammarlyClient {
                 reject({ reason: close.reason, code: close.code, type: close.type } as ClosePayload);
             };
             const req = RequestAnalysis.build({ content });
-            console.log("work?");
             this.client.send(JSON.stringify(req));
         });
     }

@@ -5,7 +5,6 @@ async function start() {
     const client = await createGrammarlyClient();
     await client.establish();
     client.init("american");
-
     const str = "helo world";
     const analysis = await client.analyze(str);
     console.log(analysis);

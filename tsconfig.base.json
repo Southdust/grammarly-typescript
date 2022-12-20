@@ -29,6 +29,6 @@
         "useDefineForClassFields": true,
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
-        "pretty": false,
+        "pretty": false
     }
 }
